@@ -196,6 +196,26 @@ btnLogin.addEventListener('click', function (e) {
     inputLoginPin.blur();
     inputLoginUsername.blur();
   }
+  let min = 4;
+  let sec = 59;
+  let fooo = setInterval(function () {
+    labelTimer.innerHTML = `${min}:${sec}`;
+    if (sec == 0) {
+      min -= 1;
+      sec = 59;
+    }
+
+    if (min <= 0 && sec <= 0) {
+      clearInterval(fooo);
+      location.reload();
+    }
+    if (min < 0) {
+      clearInterval(fooo);
+      location.reload();
+    }
+
+    sec -= 1;
+  }, 1000);
 });
 
 //Trasnsfer Functionality
